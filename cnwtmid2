@@ -1,0 +1,122 @@
+<html><head><script>
+function validateform(){
+var fname=document.forms["myform"]["firstname"].value;
+var lname=document.forms["myform"]["lastname"].value;
+var email=document.forms["myform"]["email"].value;
+var bday=document.forms["myform"]["birthday"].value;
+var gender=document.forms["myform"]["gender"].value;
+if((fname=="")||(lname=="")||(email=="")||(bday=="")||(gender=="")){
+alert("filled out of the field");
+return false;}else{
+alert("Thank you for your registration");
+}}</script></head></html>
+<form name="myform" onsubmit="return validateform()" method="post" action="login.html">
+<h4>REGISTRATION"</h4>
+<p><font color="red">*</font>Mandatory fields</p>
+<table><tr><td>
+   First Name:*</td><td>
+<input type="text" name="firstname" value=""/>
+</td></tr><tr><td>
+   Last Name:*</td><td>
+<input type="text" name="lastname" value=""/>
+</td></tr><tr><td>
+   Email:*</td><td>
+<input type="email" name="email" value=""/>
+</td></tr><tr><td>
+   Date of birth:*</td><td>
+<input type="date" name="birthday"/></td></tr>
+<tr><td>
+   Your Website:
+</td>
+<td>
+<input type="url" name="homepage" value=""/>
+</td>
+</tr>
+<tr>
+<td>
+   Gender:*
+</td>
+<td>
+<select name="gender">
+<option value="male">Male</option>
+<option value="female">Female</option>
+</select>
+</td>
+</tr>
+<tr>
+<td>
+<input type="submit" name="reg" value="Register"/>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>
+Registration.html
+
+
+<html>
+<head>
+<script>
+function validateForm(){
+var name=document.myform.name.value;
+var password=document.myform.password.value;
+if(name==null||name="")
+{
+alert("Name cannot be blank");
+return false;
+}
+else if(password.length<6){
+alert("Password must be at least 6 letters long.");
+return false;
+}
+else{
+alert("Welcome"+name);
+}
+</script>
+</head>
+<body>
+<h3>Login Form</h3>
+<form name="myform" method="post" on submit="return validateform()" action="ccv.html">
+Username:<input type="text" name="name"><br/>
+Password:<input type="password" name="password"><br/>
+<input type="submit" value="login">
+</form>
+</body>
+</html>
+
+Login.html
+
+#include<stdio.h>
+struct node
+{unsigned dist[20];
+unsigned from[20];}
+rt[10];
+int main(){
+int dmat[20][20];
+int n,i,j,k,count=0;
+printf("\nEnter no.of nodes:");
+scanf("%d",&n);
+printf("Enter the cost matrix:\n");
+for(i=0;i<n;i++)
+for(j=0;j<n;j++){
+scanf("%d",&dmat[i][j]);
+dmat[i][i]=0;
+rt[i].dist[j]=dmat[i][j];
+rt[i].from[j]=j;}
+do{count=0;
+for(i=0;i<n;i++)
+for(j=0;j<n;j++)
+for(k=0;k<n;k++)
+if(rt[i].dist[j]>dmat[i][k]+rt[k].dist[j]){
+rt[i].dist[j]=rt[i].dist[k]+rt[k].dist[j];
+rt[i].from[j]=k;
+count++;}}
+while(count!=0);
+for(i=0;i<n;i++){
+printf("\nState value for router %dis \n",i+1);
+for(j=0;j<n;j++){
+printf("\n node %dvia%dDistance%d",j+1,rt[i].from[j]+1,rt[i].dist[j]);
+}}printf("\n");}
+
+cn
